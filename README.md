@@ -3,11 +3,11 @@ The provided repository contains an incomplete automated test for email sending 
 
 The test is supposed to:
 - Login to Gmail [DONE]
-- Compose an email with unique subject, body, and attachment [IN PROGRESS]
-- Send the email to the same account which was used to login (from and to addresses would be the same) [IN PROGRESS]
-- Wait for the email to arrive in the Inbox
-- Open the received email
-- Verify the subject, body and attachment name of the received email
+- Compose an email with unique subject, body, and attachment [DONE]
+- Send the email to the same account which was used to login (from and to addresses would be the same) [DONE]
+- Wait for the email to arrive in the Inbox [TO DO]
+- Open the received email [TO DO]
+- Verify the subject, body and attachment name of the received email [TO DO]
 
 # Notes
 - Update the config.json file to replace dummy credentials before you run the tests. You may remove your login details before submitting this assessment.
@@ -15,18 +15,18 @@ The test is supposed to:
 
 # Tasks:
 1. Complete the automated test to include the missing functionality, refer to the section titled 'Project Assessment' for requirements [IN PROGRESS]
-2. There are a few bugs in the existing code that we'd like you to fix, the test case seems to be failing right now. Even though the project might not be in a great structure, please do not spend your valuable time on structure modifications unless explicitly asked to, just focus on fixing bugs. [IN PROGRESS]
+2. There are a few bugs in the existing code that we'd like you to fix, the test case seems to be failing right now. Even though the project might not be in a great structure, please do not spend your valuable time on structure modifications unless explicitly asked to, just focus on fixing bugs. [DONE]
 3. Refactor the code in existing 'Should_Send_Email' test case to use Page Object Model. [DONE]
 
 PLEASE NOTE THAT ALL THE TASKS LISTED ABOVE ARE MANDATORY. We'll be evaluating your submission on the following parameters:
 - Code quality and best practices [OK]
 - Implementation of new test cases [IN PROGRESS]
 - Bug fixes [OK]
-- By candidate Warley: Improvements of user locale problems while running the web driver [TO DO]
 
 # Prerequisites:
 - .NET Core SDK v2.0 or higher
 - Any IDE (Visual Studio 2017 recommended)
+- By Warley: Mail account should be set to English.
 
 # Development Environment:
 On any terminal move to the "CrossMail.Tests" folder (the folder containing the "CrossMail.Tests.csproj" file) and execute the following commands:
