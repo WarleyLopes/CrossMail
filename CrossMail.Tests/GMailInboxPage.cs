@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using System.IO;
 
 namespace CrossMail.Tests
 {
@@ -21,17 +22,26 @@ namespace CrossMail.Tests
         [FindsBy(How = How.XPath, Using = "//*[@role='button' and text()='Send']")]
         private IWebElement sendButtonElement;
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=':a5']")]
+        [FindsBy(How = How.XPath, Using = "//input[@name='subjectbox']")]
+        private IWebElement subjectBoxElement;
+
+        [FindsBy(How = How.XPath, Using = "//div[@aria-label='Message Body']")]
         private IWebElement bodyTextBoxElement;
 
-        public void SendMail(string destination)
+        [FindsBy(How = How.XPath, Using = "//input[@name='Filedata']")]
+        private IWebElement attachFileElement;
+
+        public void SendMail(string destination, string subject, string bodyText, string attachment = "")
         {
             //Needs improvement because of user locale while running the webdriver
-            //Needs more implementation since the scope of testing isn't complete
             composeElement.Click();
             destinationInput.Clear();
             destinationInput.SendKeys(destination);
-            bodyTextBoxElement.SendKeys(destination);
+            subjectBoxElement.SendKeys(subject);
+            bodyTextBoxElement.SendKeys(bodyText);
+            if (attachment != "") {
+                attachFileElement.SendKeys(Directory.GetCurrentDirectory() + "\\" + attachment);
+            }
             sendButtonElement.Click();
         }
     }

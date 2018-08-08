@@ -13,7 +13,10 @@ namespace CrossMail.Tests
         public GMailTests()
         {
             _browserDriver = new ChromeDriver("./");
+
             _browserDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            _browserDriver.Manage().Window.Maximize();
+
             _config = new ConfigurationBuilder()
                 .AddJsonFile("config.json")
                 .Build();
@@ -33,7 +36,7 @@ namespace CrossMail.Tests
 
             GMailInboxPage gMailInboxPage = gMailLoginPage.Login(_config["username"], _config["password"]);
 
-            gMailInboxPage.SendMail($"{_config["username"]}@gmail.com");
+            gMailInboxPage.SendMail($"{_config["username"]}@gmail.com", "CrossMail Testing", "Just a body text for a e-mail test automation", "config.json");
 
             //Needs improvement because of user locale while running the webdriver (compose button, 'to' field changes)
             //Needs more implementation since the scope of testing isn't complete
